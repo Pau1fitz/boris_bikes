@@ -9,9 +9,11 @@ class Bike
 
 	def break!
 		@working = false
+		self
 	end
 
 	def fix!
 		@working = true
+		self
 	end
 end
