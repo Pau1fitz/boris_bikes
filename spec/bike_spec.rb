@@ -1,21 +1,29 @@
 require 'bike.rb' #looks for file called bike in lib, without require test doesn't know where to look. Requiring a file is almost equivalent to just copy-pasting the contents of bike.rb
 
-describe Bike do 										#tells which class to look at in test
-	it "bike should be working after we create it" do		#it describes what we want to see happening
+# we're describing the functionality of a specific class, Bike
+describe Bike do
+
+  # this is a specific feature (behaviour) that we expect to be present
+  it 'should not be broken after we create it' do
+    bike = Bike.new # initialise a new object of Bike class
+    # expect an instance of this class to have a method "broken?" that should return false
+    expect(bike).not_to be_broken
+  end
+
+
+	it 'should be able to break' do
 	bike = Bike.new
-	expect(bike).to be_working	#checking that working? returns true. expect method should be used wherever possible
+ 	bike.break!
+	expect(bike).to be_broken
 	end
 
-	it "bike is broken" do
-		bike = Bike.new		#creates an object of Bike class that is working when created
-		expect(bike.break!).to_not be_working	#test to see if bike.working? = false use break! method to break bike
+	it 'should be able to get fixed' do
+  	bike = Bike.new
+  	bike.break!
+  	bike.fix!
+  	expect(bike).not_to be_broken
 	end
 
-	it "bike can be fixed" do	#create method to test fix
-		bike = Bike.new
-		bike.break!
-		expect(bike.fix!).to be_working
-	end
 end
 
 
