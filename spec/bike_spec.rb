@@ -12,8 +12,12 @@ describe Bike do 				#tells which class to look at in test
 		expect(bike).to_not be_working	#test to see if bike.working? = false
 	end
 
-
-
+	it "bike can be fixed" do	#create method to test fix
+		bike = Bike.new
+		bike.break!
+		bike.fix!
+		expect(bike).to be_working
+	end
 end
 
 
