@@ -17,7 +17,7 @@ describe Bike do 				#tells which class to look at in test
 		bike.break!
 		bike.fix!
 		expect(bike).to be_working
-	end
+		
 end
 
 
