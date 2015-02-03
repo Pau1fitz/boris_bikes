@@ -1,11 +1,20 @@
 require "docking_station.rb"
 
 describe Station do
+let(:station) {Station.new}
+let(:bike) {Bike.new}
+
+
 	it 'should accept a bike' do
-		bike = Bike.new
-		station = Station.new
 		expect(station.bike_count).to eq(0)
 		station.dock(bike)
 		expect(station.bike_count).to eq(1)
 	end	
+
+	it "should be able to release a bike" do
+		station.dock(bike)
+		expect(station.bike_count).to eq(1)
+		station.release(bike)
+		expect(station.bike_count).to eq(0)
+	end
 end

@@ -12,4 +12,8 @@ class Station
 		@bikes.length 
 	end
 	
+	def release(bike)
+		@bikes.pop
+	end
+
 end
