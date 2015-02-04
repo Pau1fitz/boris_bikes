@@ -14,4 +14,8 @@ describe BikeContainer do
 		holder.dock(bike)
 		expect(holder.bike_count).to eq(1)
 	end
+
+  it "shouldnt release bike when empty" do
+    expect {holder.release(bike)}.to raise_error(RuntimeError, "Station is empty")  
+  end
 end

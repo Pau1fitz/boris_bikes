@@ -9,7 +9,6 @@ describe Garage do
   it "fixes bikes when docked" do
    garage.accept(broken_bike)
    expect(broken_bike).not_to be_broken
-  
-  end  
+  end      
 
 end
