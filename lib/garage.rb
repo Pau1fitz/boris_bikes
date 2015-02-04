@@ -2,10 +2,11 @@ require_relative 'bike_container.rb'
 
 class Garage
 
-include BikeContainer
+  include BikeContainer
 
-  def fix_bikes
-    bikes.each { |bike| bike.fix! }
+  def accept(bike)
+    bike.fix!
+    dock(bike)
   end
 
 end
